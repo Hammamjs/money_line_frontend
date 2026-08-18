@@ -16,8 +16,8 @@ export function proxy(request: NextRequest) {
 
   const isAdminPage =
     pathname === '/admin' ||
-    pathname === '/transfer' ||
-    pathname.startsWith('/admin/');
+    pathname.startsWith('/admin/') ||
+    pathname === '/transfer';
 
   const isProtected = isAdminPage || protectedPage.includes(pathname);
 
@@ -65,5 +65,6 @@ export const config = {
     '/users-list',
     '/profile',
     '/forgot-password',
+    '/transfer',
   ],
 };
