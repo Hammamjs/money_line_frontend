@@ -1,10 +1,10 @@
 import { CardContent } from '@/components/ui/card';
 import { EmptyCurrency } from './empty-currency';
 import { CurrenciesList } from './currencies-list';
-import { CurrencyReponse } from '../types';
+import { Currency } from '../types';
 
 type Props = {
-  currencies: CurrencyReponse[] | undefined;
+  currencies: Currency[] | undefined;
 
   handleDelete: (id: string) => void;
   handleToggle: (id: string, isActive: boolean) => void;

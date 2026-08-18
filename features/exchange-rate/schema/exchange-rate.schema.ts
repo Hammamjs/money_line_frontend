@@ -12,7 +12,7 @@ export const exchangeRateSchema = z
 
 export type TExchangeRateSchema = z.infer<typeof exchangeRateSchema>;
 
-export const EXCHANGE_RATE_DEFAUTL_VALUES: TExchangeRateSchema = {
+export const EXCHANGE_RATE_DEFAULT_VALUES: TExchangeRateSchema = {
   fromId: '',
   toId: '',
   rate: 0,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CurrencyReponse } from '../types/currency.types';
+import { Currency } from '../types/currency.types';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -12,7 +12,7 @@ type Props = {
   initialAmount: string;
   initialFrom: string;
   initialTo: string;
-  currencies: CurrencyReponse[] | undefined;
+  currencies: Currency[] | undefined;
 };
 
 export const useTransfer = ({
@@ -21,10 +21,12 @@ export const useTransfer = ({
   initialTo,
   currencies,
 }: Props) => {
-  const [manualFromCurrency, setManualFromCurrency] =
-    useState<CurrencyReponse | null>(null);
-  const [manualToCurrency, setManualToCurrency] =
-    useState<CurrencyReponse | null>(null);
+  const [manualFromCurrency, setManualFromCurrency] = useState<Currency | null>(
+    null,
+  );
+  const [manualToCurrency, setManualToCurrency] = useState<Currency | null>(
+    null,
+  );
 
   const defaultFormCurrency = currencies?.find((c) => c.code === initialFrom);
   const defaultToCurrency = currencies?.find((c) => c.code === initialTo);

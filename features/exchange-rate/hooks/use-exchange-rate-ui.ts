@@ -1,6 +1,6 @@
 import { useForm, useWatch } from 'react-hook-form';
 import {
-  EXCHANGE_RATE_DEFAUTL_VALUES,
+  EXCHANGE_RATE_DEFAULT_VALUES,
   exchangeRateSchema,
 } from '../schema/exchange-rate.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,7 +14,7 @@ export const useExchangeRateUi = () => {
   const form = useForm({
     resolver: zodResolver(exchangeRateSchema),
     mode: 'onChange',
-    defaultValues: EXCHANGE_RATE_DEFAUTL_VALUES,
+    defaultValues: EXCHANGE_RATE_DEFAULT_VALUES,
   });
 
   // const flagOf = (sym: string) =>

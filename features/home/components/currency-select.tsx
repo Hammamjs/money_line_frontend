@@ -1,14 +1,14 @@
 import { ChevronDown } from 'lucide-react';
-import { CurrencyReponse } from '@/features/currency/types/currency.types';
+import { Currency } from '@/features/currency/types/currency.types';
 
 function CurrencySelect({
   value,
   onChange,
   currencies,
 }: {
-  value: CurrencyReponse | null;
-  currencies?: CurrencyReponse[];
-  onChange: (c: CurrencyReponse) => void;
+  value: Currency | null;
+  currencies?: Currency[];
+  onChange: (c: Currency) => void;
 }) {
   return (
     <div className="relative">

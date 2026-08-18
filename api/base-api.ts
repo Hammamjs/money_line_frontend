@@ -43,7 +43,6 @@ const fetchQueryWithReauth: BaseQueryFn<
     if (!mutex.isLocked()) {
       const release = await mutex.acquire();
       try {
-        console.log('Sending refresh token');
         const refreshResult = await fetchQuery(
           { url: '/auth/refresh', method: 'POST' },
           api,
@@ -51,7 +50,6 @@ const fetchQueryWithReauth: BaseQueryFn<
         );
 
         if (refreshResult.data) {
-          console.log('Updating token');
           api.dispatch(
             setCredentials({ ...(refreshResult.data as AuthResult) }),
           );

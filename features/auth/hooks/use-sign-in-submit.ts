@@ -15,12 +15,11 @@ export const useSignInSubmit = () => {
 
   const onSubmit = async (values: TFormSchema) => {
     try {
-      const user = await handleSignIn(values);
+      await handleSignIn(values);
       toast.success('Signin succeeded');
 
       const returnUrl = searchParams.get('returnUrl');
       router.push(returnUrl || '/');
-      console.log(user);
     } catch (err) {
       console.log(err);
       toast.error(t.invalidCreds);

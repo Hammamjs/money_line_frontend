@@ -2,7 +2,7 @@ export type CurrencyCode = string;
 
 export type Rates = Record<CurrencyCode, number>;
 
-export type CurrencyReponse = {
+export type Currency = {
   id: string;
   code: string;
   name: string;

@@ -1,1 +1,1 @@
-export { useGetExchageRateQuery } from './use-get-exchange-rate';
+export { useGetExchangeRateQuery } from './use-get-exchange-rate';

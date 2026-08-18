@@ -8,7 +8,6 @@ export const AccountsSliceApi = baseApi.injectEndpoints({
     getUserAccounts: build.query<Account[], void>({
       query: () => '/accounts/user',
       transformResponse: (res: { accounts: Account[] }) => {
-        console.log(res);
         return res.accounts;
       },
       providesTags: (result) =>

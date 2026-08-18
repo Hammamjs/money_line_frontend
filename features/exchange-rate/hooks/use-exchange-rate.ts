@@ -1,7 +1,7 @@
 import { UseFormReturn } from 'react-hook-form';
 import { useAddExchangeRateMutationAction } from './use-add-exchange-rate';
 import {
-  EXCHANGE_RATE_DEFAUTL_VALUES,
+  EXCHANGE_RATE_DEFAULT_VALUES,
   TExchangeRateSchema,
 } from '../schema/exchange-rate.schema';
 import { toast } from 'sonner';
@@ -26,8 +26,6 @@ export const useExchangeRateActions = ({ form, fromId, rate, toId }: Props) => {
     useUpdateExchangeRateMutationAction();
 
   const handleAdd = async () => {
-    console.log('Add exchange', { fromId, toId, rate });
-
     try {
       await addPairs({
         fromCurrencyId: fromId,
@@ -35,7 +33,7 @@ export const useExchangeRateActions = ({ form, fromId, rate, toId }: Props) => {
         rate,
       });
 
-      form.reset(EXCHANGE_RATE_DEFAUTL_VALUES);
+      form.reset(EXCHANGE_RATE_DEFAULT_VALUES);
       toast.success('Pair added');
     } catch (err) {
       console.log(err);

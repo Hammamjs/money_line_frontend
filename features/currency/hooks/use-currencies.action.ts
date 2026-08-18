@@ -29,7 +29,6 @@ export const useCurrenciesActions = ({
     useDeleteCurrencyMutationAction();
 
   const handleAdd = async () => {
-    console.log('handle Added triggered');
     try {
       await addCurrency({ name, symbol, code, flag });
       form.reset(CURRENCY_DEFAULT_VALUES);

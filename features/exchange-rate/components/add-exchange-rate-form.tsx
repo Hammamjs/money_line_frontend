@@ -1,12 +1,12 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Form } from './form';
-import { CurrencyReponse } from '@/features/currency/types';
+import { Currency } from '@/features/currency/types';
 import { EmptyCurrenciesList } from './empty-currencies-list';
 import { TExchangeRateSchema } from '../schema';
 import { UseFormReturn } from 'react-hook-form';
 
 type Props = {
-  currencies: CurrencyReponse[] | undefined;
+  currencies: Currency[] | undefined;
 
   form: UseFormReturn<TExchangeRateSchema>;
   fromId: string;

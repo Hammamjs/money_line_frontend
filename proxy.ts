@@ -1,11 +1,12 @@
-import jwt from 'jsonwebtoken';
+import { jwtVerify } from 'jose';
 import { NextRequest, NextResponse } from 'next/server';
 
-const protectedPage = ['/profile', '/users-list'];
-
+const protectedPage = ['/profile', '/users-list', '/transfer'];
 const AdminPagesOnly = ['/users-list'];
 
-export function proxy(request: NextRequest) {
+const secret = new TextEncoder().encode(process.env.JWT_REFRESH_TOKEN_SECRET!);
+
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get('refreshToken')?.value;
   const pathname = request.nextUrl.pathname;
 
@@ -14,10 +15,7 @@ export function proxy(request: NextRequest) {
     pathname === '/sign-up' ||
     pathname === '/forgot-password';
 
-  const isAdminPage =
-    pathname === '/admin' ||
-    pathname.startsWith('/admin/') ||
-    pathname === '/transfer';
+  const isAdminPage = pathname === '/admin' || pathname.startsWith('/admin/');
 
   const isProtected = isAdminPage || protectedPage.includes(pathname);
 
@@ -37,16 +35,12 @@ export function proxy(request: NextRequest) {
 
   if (token && requirementsAdmin) {
     try {
-      const decoded = jwt.verify(
-        token,
-        process.env.JWT_REFRESH_TOKEN_SECRET!,
-      ) as { role?: string };
+      const { payload } = await jwtVerify(token, secret);
+      const role = payload.role as string | undefined;
 
-      if (decoded?.role !== 'admin' && decoded?.role !== 'super_admin') {
+      if (role !== 'admin' && role !== 'super_admin') {
         return NextResponse.redirect(new URL('/', request.url));
       }
-
-      console.log(decoded);
     } catch {
       const singInUrl = new URL('/sign-in', request.url);
       singInUrl.searchParams.set('returnUrl', pathname);

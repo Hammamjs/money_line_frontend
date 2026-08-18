@@ -1,15 +1,15 @@
 import { baseApi } from '@/api/base-api';
-import { CurrencyQuery, CurrencyReponse } from '../types/currency.types';
+import { CurrencyQuery, Currency } from '../types/currency.types';
 import { currenciesKey } from '../constants/index';
 
 export const CurrencySliceApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getCurrencies: build.query<CurrencyReponse[], void>({
+    getCurrencies: build.query<Currency[], void>({
       query: () => '/currency',
       providesTags: [currenciesKey.list()],
     }),
 
-    addCurrency: build.mutation<CurrencyReponse, CurrencyQuery>({
+    addCurrency: build.mutation<Currency, CurrencyQuery>({
       query: (body) => ({
         url: '/currency',
         method: 'POST',
@@ -43,41 +43,40 @@ export const CurrencySliceApi = baseApi.injectEndpoints({
       },
     }),
 
-    updateCurrency: build.mutation<
-      CurrencyReponse,
-      { isActive: boolean; id: string }
-    >({
-      query: ({ id, ...body }) => ({
-        url: `currency/${id}`,
-        method: 'PATCH',
-        body,
-      }),
+    updateCurrency: build.mutation<Currency, { isActive: boolean; id: string }>(
+      {
+        query: ({ id, ...body }) => ({
+          url: `currency/${id}`,
+          method: 'PATCH',
+          body,
+        }),
 
-      onQueryStarted: async (args, { dispatch, queryFulfilled }) => {
-        const patch = dispatch(
-          CurrencySliceApi.util.updateQueryData(
-            'getCurrencies',
-            undefined,
-            (draft) => {
-              const currency = draft.find((c) => c.id === args.id);
-              if (currency) {
-                currency.isActive = args.isActive;
-              }
-            },
-          ),
-        );
+        onQueryStarted: async (args, { dispatch, queryFulfilled }) => {
+          const patch = dispatch(
+            CurrencySliceApi.util.updateQueryData(
+              'getCurrencies',
+              undefined,
+              (draft) => {
+                const currency = draft.find((c) => c.id === args.id);
+                if (currency) {
+                  currency.isActive = args.isActive;
+                }
+              },
+            ),
+          );
 
-        try {
-          await queryFulfilled;
-        } catch {
-          patch.undo();
-        }
+          try {
+            await queryFulfilled;
+          } catch {
+            patch.undo();
+          }
+        },
+
+        invalidatesTags: [currenciesKey.list()],
       },
+    ),
 
-      invalidatesTags: [currenciesKey.list()],
-    }),
-
-    deleteCurrency: build.mutation<CurrencyReponse, { id: string }>({
+    deleteCurrency: build.mutation<Currency, { id: string }>({
       query: ({ id }) => ({
         url: `/currency/${id}`,
         method: 'DELETE',

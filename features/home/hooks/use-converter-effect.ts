@@ -1,12 +1,12 @@
-import { CurrencyReponse } from '@/features/currency/types/currency.types';
+import { Currency } from '@/features/currency/types/currency.types';
 import { convert } from '@/lib/exchange';
 import React, { useEffect } from 'react';
 
 type ConverterState = {
   lastEdited: 'from' | 'to';
   fromAmount: string;
-  fromCurrency: CurrencyReponse | null;
-  toCurrency: CurrencyReponse | null;
+  fromCurrency: Currency | null;
+  toCurrency: Currency | null;
   toAmount: string;
 
   rate: number;

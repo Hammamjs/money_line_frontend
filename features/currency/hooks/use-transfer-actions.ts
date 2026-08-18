@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
-import { CurrencyReponse } from '../types/currency.types';
+import { Currency } from '../types/currency.types';
 import { UseFormReturn } from 'react-hook-form';
 import {
   CreateOrderSchema,
@@ -14,8 +14,8 @@ import {
 import { useCreateOrderMutationAction } from '@/features/orders/hooks';
 
 type Props = {
-  fromCurrency: CurrencyReponse | undefined;
-  toCurrency: CurrencyReponse | undefined;
+  fromCurrency: Currency | undefined;
+  toCurrency: Currency | undefined;
   amount: string;
   convertedAmount: string;
   selectedAccount: Account | undefined;
@@ -103,8 +103,6 @@ export const useTransferActions = ({
     Object.entries(data).forEach(([k, v]) => {
       if (v === null || v === undefined || v === '') return;
 
-      console.log([k, v]);
-
       if (v instanceof FileList) {
         Array.from(v).forEach((file) => formData.append(k, file));
       } else if (v instanceof File) {
@@ -115,10 +113,6 @@ export const useTransferActions = ({
     });
 
     try {
-      console.log('Log values before create order ', [
-        formData.keys(),
-        formData.values(),
-      ]);
       await onCreate(formData);
       const message =
         `Money Lite Transfer Request\n` +

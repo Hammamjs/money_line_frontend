@@ -1,12 +1,12 @@
-import { useEffect, useMemo } from 'react';
-import { CurrencyReponse } from '../types/currency.types';
+import { useMemo } from 'react';
+import { Currency } from '../types/currency.types';
 import { Account } from '@/features/accounts/types';
-import { useGetExchageRateQuery } from '@/features/exchange-rate/hooks';
+import { useGetExchangeRateQuery } from '@/features/exchange-rate/hooks';
 
 type Props = {
   amount: string;
-  fromCurrency: CurrencyReponse | undefined;
-  toCurrency: CurrencyReponse | undefined;
+  fromCurrency: Currency | undefined;
+  toCurrency: Currency | undefined;
   accounts: Account[] | undefined;
   selectedAccountId: string;
 };
@@ -18,18 +18,10 @@ export const useTransferCalculation = ({
   selectedAccountId,
   toCurrency,
 }: Props) => {
-  const {
-    data: exchangeRate,
-    isError,
-    error,
-  } = useGetExchageRateQuery(fromCurrency?.id, toCurrency?.id);
-
-  useEffect(() => {
-    console.log(exchangeRate);
-    if (isError) console.log(error);
-  }, [exchangeRate, isError, error]);
-
-  console.log(exchangeRate);
+  const { data: exchangeRate } = useGetExchangeRateQuery(
+    fromCurrency?.id,
+    toCurrency?.id,
+  );
 
   const convertedAmount = useMemo(
     () => (+amount * (exchangeRate?.rate || 0)).toString(),

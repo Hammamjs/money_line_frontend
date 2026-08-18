@@ -1,7 +1,7 @@
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useGetExchangeRatePairQuery } from '../api/exchange-rate-slice.api';
 
-export const useGetExchageRateQuery = (
+export const useGetExchangeRateQuery = (
   fromId: string | undefined,
   toId: string | undefined,
 ) => {
