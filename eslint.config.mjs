@@ -63,7 +63,7 @@ const eslintConfig = defineConfig([
                 to: {
                   element: {
                     type: 'feature',
-                    fileInternalPath: ['index.ts', 'components/**'],
+                    fileInternalPath: ['index.ts', 'components/**', 'api/**'],
                   },
                 },
               },
@@ -83,7 +83,7 @@ const eslintConfig = defineConfig([
                       'types/**',
                       'store/**',
                       'schema/**',
-                      "utils/**"
+                      'utils/**',
                     ],
                     captured: {
                       featureName: '!{{from.element.captured.featureName}}',

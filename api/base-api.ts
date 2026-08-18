@@ -16,7 +16,6 @@ import { notificationkey } from '@/features/notifications/constants';
 import { orderKey } from '@/features/orders/constants';
 import { usersKey } from '@/features/users/constants';
 import { RootState } from '@/store/store';
-import { relative } from 'path';
 
 const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000/api';
 

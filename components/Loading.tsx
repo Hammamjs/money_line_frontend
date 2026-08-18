@@ -16,6 +16,7 @@ export const Loading = () => {
           [-webkit-text-stroke:3px_#fff7cc]
           drop-shadow-[0_0_10px_#facc15]
           animate-[goldGlow_2s_ease-in-out_infinite]
+          text-center
         "
       >
         Money Line
