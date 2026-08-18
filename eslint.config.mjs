@@ -63,7 +63,12 @@ const eslintConfig = defineConfig([
                 to: {
                   element: {
                     type: 'feature',
-                    fileInternalPath: ['index.ts', 'components/**', 'api/**'],
+                    fileInternalPath: [
+                      'index.ts',
+                      'components/**',
+                      'api/**',
+                      'store/**',
+                    ],
                   },
                 },
               },

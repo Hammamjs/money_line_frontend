@@ -4,12 +4,6 @@ import { logout, setCredentials } from '../store/slices/auth-slice';
 
 export const SignInApiSlice = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    signInWithGoogle: build.mutation<AuthResult, void>({
-      query: () => ({
-        url: '/auth/sign-in/google',
-        method: 'POST',
-      }),
-    }),
     signIn: build.mutation<AuthResult, SignInQuery>({
       query: ({ email, password }) => ({
         url: '/auth/sign-in',
@@ -120,11 +114,8 @@ export const {
   useLogoutMutation,
   useSignupMutation,
   useUpdatePasswordMutation,
-  // reset passwrod
+  // reset password
   useVerifyCodeMutation,
   useForgetPasswordMutation,
   useResetPasswordMutation,
-
-  // Auth with google
-  useSignInWithGoogleMutation,
 } = SignInApiSlice;
