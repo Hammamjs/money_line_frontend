@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { NextRequest, NextResponse } from 'next/server';
 
-const protectedPage = ['/profile', '/users-list'];
+const protectedPage = ['/profile', '/users-list', '/transfer'];
 
 const AdminPagesOnly = ['/users-list'];
 
@@ -62,5 +62,6 @@ export const config = {
     '/users-list',
     '/profile',
     '/forgot-password',
+    '/transfer',
   ],
 };
