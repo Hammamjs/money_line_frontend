@@ -17,7 +17,7 @@ import { orderKey } from '@/features/orders/constants';
 import { usersKey } from '@/features/users/constants';
 import { RootState } from '@/store/store';
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+const baseUrl = '/api';
 
 const fetchQuery = fetchBaseQuery({
   baseUrl,
