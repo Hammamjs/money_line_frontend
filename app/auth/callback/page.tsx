@@ -28,7 +28,7 @@ export default function GoogleCallback() {
         router.push('/login?error=invalid_user_data');
       }
     } else {
-      router.push('login?error=missin_credentials');
+      router.push('login?error=missing_credentials');
     }
   }, [accessToken, userParam, dispatch, router]);
 
