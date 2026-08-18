@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { NextRequest, NextResponse } from 'next/server';
 
-const protectedPage = ['/profile', '/users-list', '/transfer'];
+const protectedPage = ['/profile', '/users-list'];
 
 const AdminPagesOnly = ['/users-list'];
 
@@ -14,7 +14,10 @@ export function proxy(request: NextRequest) {
     pathname === '/sign-up' ||
     pathname === '/forgot-password';
 
-  const isAdminPage = pathname === '/admin' || pathname.startsWith('/admin/');
+  const isAdminPage =
+    pathname === '/admin' ||
+    pathname === '/transfer' ||
+    pathname.startsWith('/admin/');
 
   const isProtected = isAdminPage || protectedPage.includes(pathname);
 
@@ -62,6 +65,5 @@ export const config = {
     '/users-list',
     '/profile',
     '/forgot-password',
-    '/transfer',
   ],
 };

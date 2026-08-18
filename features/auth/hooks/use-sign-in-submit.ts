@@ -28,7 +28,7 @@ export const useSignInSubmit = () => {
   };
 
   const handleSignWithGoogle = async () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_URL}/auth/sign-in/google`;
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/sign-in/google`;
   };
 
   return {
