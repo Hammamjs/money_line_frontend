@@ -1,7 +1,7 @@
 import { UseFormReturn } from 'react-hook-form';
 import { Plus } from 'lucide-react';
 
-import { CurrencyReponse } from '@/features/currency/types';
+import { Currency } from '@/features/currency/types';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -10,7 +10,7 @@ import { getFlag } from '../utils/get-flag';
 
 type Props = {
   form: UseFormReturn<TExchangeRateSchema>;
-  currencies: CurrencyReponse[] | undefined;
+  currencies: Currency[] | undefined;
   fromId: string;
   toId: string;
   isAdding: boolean;

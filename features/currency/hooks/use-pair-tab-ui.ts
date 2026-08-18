@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { CurrencyReponse } from '../types';
+import { Currency } from '../types';
 
 export const usePairTabUi = () => {
-  const [pairs, setPairs] = useState<CurrencyReponse[]>([]);
-  const [currencies, setCurrencies] = useState<CurrencyReponse[]>([]);
+  const [pairs, setPairs] = useState<Currency[]>([]);
+  const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [newFrom, setNewFrom] = useState('');
   const [newTo, setNewTo] = useState('');
   const [newRate, setNewRate] = useState('');

@@ -6,10 +6,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/lib/i18n';
 
-import { CurrencyReponse } from '../types/currency.types';
+import { Currency as CurrencyType } from '../types/currency.types';
 
 type Props = {
-  c: CurrencyReponse;
+  c: CurrencyType;
   i: number;
 
   handleDelete: (id: string) => void;

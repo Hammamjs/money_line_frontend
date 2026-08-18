@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { UseFormReturn } from 'react-hook-form';
 import {
@@ -20,27 +20,23 @@ import { Account } from '@/features/accounts/types';
 import { TCreateOrderSchema } from '@/features/orders/schema';
 import { useTranslation } from '@/lib/i18n';
 
-import { CurrencyReponse } from '../types/currency.types';
+import { Currency } from '../types/currency.types';
 import { AccountDetails } from '@/features/accounts/components';
 
 type Props = {
   selectedAccountId: string;
   selectedAccount: Account | undefined;
   copiedField: string | null;
-  fromCurrency: CurrencyReponse | undefined;
-  toCurrency: CurrencyReponse | undefined;
-  currencies: CurrencyReponse[] | undefined;
+  fromCurrency: Currency | undefined;
+  toCurrency: Currency | undefined;
+  currencies: Currency[] | undefined;
   convertedAmount: string;
 
   form: UseFormReturn<TCreateOrderSchema>;
 
   setStep: React.Dispatch<React.SetStateAction<number>>;
-  setManualFromCurrency: React.Dispatch<
-    React.SetStateAction<CurrencyReponse | null>
-  >;
-  setManualToCurrency: React.Dispatch<
-    React.SetStateAction<CurrencyReponse | null>
-  >;
+  setManualFromCurrency: React.Dispatch<React.SetStateAction<Currency | null>>;
+  setManualToCurrency: React.Dispatch<React.SetStateAction<Currency | null>>;
   copyToClipboard: (text: string, field: string) => void;
   setSelectedAccountId: React.Dispatch<React.SetStateAction<string>>;
 };
@@ -70,10 +66,6 @@ export const FirstStep = ({
   const { t } = useTranslation();
 
   const { data } = useGetAdminsAccountsQuery();
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   const [selectedAdminEmail, setSelectedAdminEmail] = useState(
     data?.[0]?.email ?? '',
@@ -225,7 +217,6 @@ export const FirstStep = ({
                   const from = currencies?.find(
                     (c) => c.code === e.target.value,
                   );
-                  console.log(from);
                   if (from) {
                     setManualFromCurrency(from);
                   }
@@ -247,7 +238,6 @@ export const FirstStep = ({
                 value={toCurrency?.code}
                 onChange={(e) => {
                   const to = currencies?.find((c) => c.code === e.target.value);
-                  console.log(to);
                   if (to) {
                     setManualToCurrency(to);
                   }

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useGetCurrenciesQuery } from '@/features/currency/api/currency-slice.api';
-import { CurrencyReponse } from '@/features/currency/types/currency.types';
+import { Currency } from '@/features/currency/types/currency.types';
 
 export const useConverterUi = () => {
   const { data: currenciesData } = useGetCurrenciesQuery();
@@ -10,13 +10,11 @@ export const useConverterUi = () => {
     [currenciesData],
   );
 
-  const [fromCurrency, setFromCurrency] = useState<CurrencyReponse | null>(
-    null,
-  );
-  const [toCurrency, setToCurrency] = useState<CurrencyReponse | null>(null);
+  const [fromCurrency, setFromCurrency] = useState<Currency | null>(null);
+  const [toCurrency, setToCurrency] = useState<Currency | null>(null);
 
-  const selectedFromCurency = fromCurrency ?? currencies?.[0] ?? null;
-  const selectedToCurency = toCurrency ?? currencies?.[1] ?? null;
+  const selectedFromCurrency = fromCurrency ?? currencies?.[0] ?? null;
+  const selectedToCurrency = toCurrency ?? currencies?.[1] ?? null;
 
   const [fromAmount, setFromAmount] = useState('100000');
   const [toAmount, setToAmount] = useState('');
@@ -30,8 +28,8 @@ export const useConverterUi = () => {
     setFromCurrency,
     toCurrency,
     setToCurrency,
-    selectedFromCurency,
-    selectedToCurency,
+    selectedFromCurrency,
+    selectedToCurrency,
     fromAmount,
     setFromAmount,
     toAmount,

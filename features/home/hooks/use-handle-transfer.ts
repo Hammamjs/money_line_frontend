@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
-import { CurrencyReponse } from '@/features/currency/types';
+import { Currency } from '@/features/currency/types';
 
 type handleTransferProps = {
-  toCurrency: CurrencyReponse | null;
-  fromCurrency: CurrencyReponse | null;
+  toCurrency: Currency | null;
+  fromCurrency: Currency | null;
   fromAmount: string;
 };
 

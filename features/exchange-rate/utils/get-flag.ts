@@ -1,6 +1,6 @@
-import { CurrencyReponse } from '@/features/currency/types/currency.types';
+import { Currency } from '@/features/currency/types/currency.types';
 
 export const getFlag = (
-  currencies: CurrencyReponse[] | undefined,
+  currencies: Currency[] | undefined,
   id: string,
 ): string => currencies?.find((c) => c.id === id)?.flag || 'unknown';

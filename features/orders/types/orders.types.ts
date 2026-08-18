@@ -1,4 +1,4 @@
-import { CurrencyReponse } from '@/features/currency/types';
+import { Currency } from '@/features/currency/types';
 
 export type OrderStatus = 'success' | 'pending';
 export type Order = {
@@ -9,8 +9,8 @@ export type Order = {
   accountHolderName: string;
   paymentProvider: string;
   transactionProof: string;
-  fromCurrency: Pick<CurrencyReponse, 'code' | 'flag' | 'name'>;
-  toCurrency: Pick<CurrencyReponse, 'code' | 'flag' | 'name'>;
+  fromCurrency: Pick<Currency, 'code' | 'flag' | 'name'>;
+  toCurrency: Pick<Currency, 'code' | 'flag' | 'name'>;
   note?: string;
   amount: string;
   createdAt: Date;

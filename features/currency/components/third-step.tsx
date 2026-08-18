@@ -12,13 +12,13 @@ import { selectUser } from '@/features/auth/store';
 import { Account } from '@/features/accounts/types';
 import { TCreateOrderSchema } from '@/features/orders/schema';
 import { useTranslation } from '@/lib/i18n';
-import { CurrencyReponse } from '../types/currency.types';
+import { Currency } from '../types/currency.types';
 import { Spinner } from '@/components/spinner';
 
 type Props = {
   amount: string;
-  fromCurrency: CurrencyReponse | undefined;
-  toCurrency: CurrencyReponse | undefined;
+  fromCurrency: Currency | undefined;
+  toCurrency: Currency | undefined;
   selectedAccount: Account | undefined;
   imagePreview: string | undefined;
   convertedAmount: string;

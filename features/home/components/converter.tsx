@@ -3,7 +3,7 @@ import { ArrowRight, ArrowRightLeft } from 'lucide-react';
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { CurrencyReponse } from '@/features/currency/types';
+import { Currency } from '@/features/currency/types';
 import { ExchangeRateResult } from '@/features/exchange-rate/types';
 import { rateLabel } from '@/lib/exchange';
 import { useTranslation } from '@/lib/i18n';
@@ -12,17 +12,17 @@ import { Button } from '@/components/ui/button';
 
 type Props = {
   fromAmount: string;
-  fromCurrency: CurrencyReponse | null;
+  fromCurrency: Currency | null;
   data: ExchangeRateResult | undefined;
   isRateLoading: boolean;
   isRateError: boolean;
   toAmount: string;
-  toCurrency: CurrencyReponse | null;
-  currencies: CurrencyReponse[] | undefined;
-  handleFromCurrencyChange: (c: CurrencyReponse) => void;
+  toCurrency: Currency | null;
+  currencies: Currency[] | undefined;
+  handleFromCurrencyChange: (c: Currency) => void;
   handleToChange: (c: string) => void;
   handleSwap: () => void;
-  handleToCurrencyChange: (c: CurrencyReponse) => void;
+  handleToCurrencyChange: (c: Currency) => void;
   handleFromChange: (c: string) => void;
   handleTransfer: () => void;
 };

@@ -12,9 +12,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     refresh()
       .unwrap()
-      .catch((err: unknown) => {
-        console.log(err);
-      })
+      .catch((err: unknown) => {})
       .finally(() => {
         setIsChecked(true);
       });

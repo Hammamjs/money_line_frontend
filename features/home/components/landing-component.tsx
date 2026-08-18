@@ -1,7 +1,6 @@
 'use client';
-import { useEffect } from 'react';
 
-import { useGetExchageRateQuery } from '@/features/exchange-rate/hooks';
+import { useGetExchangeRateQuery } from '@/features/exchange-rate/hooks';
 import { useCurrencyExchangeAction } from '../hooks/use-currency-exchange-action';
 import { useConverterEffect } from '../hooks/use-converter-effect';
 import { useHandleTransfer } from '../hooks/use-handle-transfer';
@@ -14,8 +13,8 @@ export default function Landing() {
     currencies,
     fromAmount,
     lastEdited,
-    selectedFromCurency,
-    selectedToCurency,
+    selectedFromCurrency,
+    selectedToCurrency,
     setFromAmount,
     setFromCurrency,
     setLastEdited,
@@ -24,9 +23,9 @@ export default function Landing() {
     toAmount,
   } = useConverterUi();
 
-  const { data, isLoading, isError } = useGetExchageRateQuery(
-    selectedFromCurency?.id,
-    selectedToCurency?.id,
+  const { data, isLoading, isError } = useGetExchangeRateQuery(
+    selectedFromCurrency?.id,
+    selectedToCurrency?.id,
   );
 
   const {
@@ -36,8 +35,8 @@ export default function Landing() {
     handleToChange,
     handleToCurrencyChange,
   } = useCurrencyExchangeAction({
-    fromCurrency: selectedFromCurency,
-    toCurrency: selectedToCurency,
+    fromCurrency: selectedFromCurrency,
+    toCurrency: selectedToCurrency,
     toAmount,
     setFromCurrency,
     setToCurrency,
@@ -49,8 +48,8 @@ export default function Landing() {
   useConverterEffect({
     fromAmount,
     toAmount,
-    fromCurrency: selectedFromCurency,
-    toCurrency: selectedToCurency,
+    fromCurrency: selectedFromCurrency,
+    toCurrency: selectedToCurrency,
     lastEdited,
     setFromAmount,
     setToAmount,
@@ -59,15 +58,9 @@ export default function Landing() {
 
   const { handleTransfer } = useHandleTransfer({
     fromAmount,
-    toCurrency: selectedToCurency,
-    fromCurrency: selectedFromCurency,
+    toCurrency: selectedToCurrency,
+    fromCurrency: selectedFromCurrency,
   });
-
-  useEffect(() => {
-    console.log('FROM ID:', selectedFromCurency?.id);
-    console.log('TO ID:', selectedToCurency?.id);
-    console.log('DATA:', data);
-  }, [selectedFromCurency, selectedToCurency, data]);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
@@ -115,10 +108,10 @@ export default function Landing() {
 
           <Converter
             fromAmount={fromAmount}
-            fromCurrency={selectedFromCurency}
+            fromCurrency={selectedFromCurrency}
             data={data}
             toAmount={toAmount}
-            toCurrency={selectedToCurency}
+            toCurrency={selectedToCurrency}
             currencies={currencies}
             handleFromCurrencyChange={handleFromCurrencyChange}
             handleToChange={handleToChange}

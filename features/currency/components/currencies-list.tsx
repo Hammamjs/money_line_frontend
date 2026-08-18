@@ -1,8 +1,8 @@
-import { CurrencyReponse } from '../types';
+import { Currency as CurrencyType } from '../types';
 import { Currency } from './currency';
 
 type Props = {
-  currencies: CurrencyReponse[] | undefined;
+  currencies: CurrencyType[] | undefined;
 
   handleDelete: (id: string) => void;
   handleToggle: (id: string, isActive: boolean) => void;

@@ -1,6 +1,6 @@
 export type {
   CurrencyCode,
   CurrencyQuery,
-  CurrencyReponse,
+  Currency,
   Rates,
 } from './currency.types';
