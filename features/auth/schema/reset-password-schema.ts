@@ -13,7 +13,7 @@ export const ResetPasswordSchema = z
         'Password must contain on special character at least',
       ),
 
-    confirmPassword: z.string().min(1, 'Confirm passwrod is required'),
+    confirmPassword: z.string().min(1, 'Confirm password is required'),
   })
   .refine(
     ({ newPassword, confirmPassword }) => newPassword === confirmPassword,

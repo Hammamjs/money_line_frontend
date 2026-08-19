@@ -15,12 +15,12 @@ import { TResetPasswordSchema } from '../schema/reset-password-schema';
 
 type Props = {
   form: UseFormReturn<TResetPasswordSchema>;
-  isReseting: boolean;
+  isReset: boolean;
 
   handleReset: () => void;
 };
 
-export const SetNewPassword = ({ form, handleReset, isReseting }: Props) => {
+export const SetNewPassword = ({ form, handleReset, isReset }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -54,7 +54,7 @@ export const SetNewPassword = ({ form, handleReset, isReseting }: Props) => {
           <Button
             className="w-full h-11"
             onClick={handleReset}
-            disabled={!form.formState.isValid || isReseting}
+            disabled={!form.formState.isValid || isReset}
           >
             {form.formState.isSubmitting ? '…' : t.resetPassword}
           </Button>

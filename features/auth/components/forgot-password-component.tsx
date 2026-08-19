@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { FindEmail } from './find-email';
 import { VerifyCode } from './verify-code';
 import { SetNewPassword } from './set-new-password';
-import { PasswordReseted } from './password-reset';
+import { PasswordResetSuccess } from './password-reset';
 import { useForgotPasswordUi } from '../hooks/use-forgot-password-ui';
 import { useForgotPasswordActions } from '../hooks/use-forgot-password-actions';
 
@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     handleReset,
     handleSendCode,
     handleVerify,
-    isReseting,
+    isReset,
     isSearching,
     isVerifying,
   } = useForgotPasswordActions(ui);
@@ -80,12 +80,12 @@ export default function ForgotPassword() {
             <SetNewPassword
               handleReset={handleReset}
               form={resetForm}
-              isReseting={isReseting}
+              isReset={isReset}
             />
           )}
 
           {/* ── Done ── */}
-          {step === 'done' && <PasswordReseted />}
+          {step === 'done' && <PasswordResetSuccess />}
         </AnimatePresence>
       </div>
     </div>

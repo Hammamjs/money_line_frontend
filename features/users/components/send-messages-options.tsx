@@ -12,7 +12,7 @@ type Props = {
   setRecipientId: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const SendMessegesOptions = ({
+export const SendMessagesOptions = ({
   recipientId,
   setRecipientId,
   users,

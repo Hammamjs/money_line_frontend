@@ -17,9 +17,6 @@ export const useExchangeRateUi = () => {
     defaultValues: EXCHANGE_RATE_DEFAULT_VALUES,
   });
 
-  // const flagOf = (sym: string) =>
-  //   currencies.find((c) => c.symbol === sym)?.flag ?? '💱';
-
   const [rate, fromId, toId] = useWatch({
     control: form.control,
     name: ['rate', 'fromId', 'toId'],

@@ -1,1 +1,1 @@
-export { notificationkey } from './notification.constants';
+export { notificationKey } from './notification.constants';

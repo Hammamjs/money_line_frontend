@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRightLeft, CheckCircle2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-export const PasswordReseted = () => {
+export const PasswordResetSuccess = () => {
   const router = useRouter();
   const { t } = useTranslation();
 

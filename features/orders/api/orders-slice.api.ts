@@ -23,7 +23,6 @@ export const OrdersSliceApi = baseApi.injectEndpoints({
           ? [...result.map(({ id }) => orderKey.details(id)), orderKey.list()]
           : [orderKey.list()],
       transformResponse: (orders: Order[]) => {
-        console.log(orders);
         return orders;
       },
     }),

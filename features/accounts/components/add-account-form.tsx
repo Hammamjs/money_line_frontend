@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { AccountForm } from './account-form';
 import { AccountTypeOption } from './account-type-option';
-import { AddAcountHeader } from './add-account-header';
+import { AddAccountHeader } from './add-account-header';
 import { UseFormReturn } from 'react-hook-form';
 import { TAccountSchema } from '../schema/accounts.schema';
 import { AccountType } from '../types';
@@ -18,7 +18,7 @@ export const AddAccountForm = ({ form, newType, setNewType }: Props) => {
   const { handleAddAccount } = useAccountActions();
   return (
     <Card className="border-dashed border-2 border-primary/20">
-      <AddAcountHeader />
+      <AddAccountHeader />
       <CardContent className="space-y-3">
         {/* Type selector */}
         <AccountTypeOption newType={newType} setNewType={setNewType} />

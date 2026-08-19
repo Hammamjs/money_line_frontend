@@ -1,6 +1,6 @@
 import { baseApi } from '@/api/base-api';
 import {
-  AddExhangeRateQuery,
+  AddExchangeRateQuery,
   ExchangeRateQuery,
   ExchangeRateResult,
 } from '../types/exchange-rate.types';
@@ -21,7 +21,7 @@ export const ExchangeRateSliceApi = baseApi.injectEndpoints({
       query: () => '/exchange-rate',
       providesTags: [rateKey.list()],
     }),
-    addExchangeRate: build.mutation<ExchangeRateResult, AddExhangeRateQuery>({
+    addExchangeRate: build.mutation<ExchangeRateResult, AddExchangeRateQuery>({
       query: (body) => ({
         url: 'exchange-rate',
         method: 'POST',

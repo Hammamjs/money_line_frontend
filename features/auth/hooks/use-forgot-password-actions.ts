@@ -25,7 +25,7 @@ export const useForgotPasswordActions = ({
 }: Props) => {
   const { onForgetPassword, isLoading: isSearching } = useForgetPassword();
   const { onVerify, isLoading: isVerifying } = useVerifyCodeMutationAction();
-  const { onResetPassword, isLoading: isReseting } = useResetPassword();
+  const { onResetPassword, isLoading: isReset } = useResetPassword();
 
   const { t } = useTranslation();
 
@@ -55,6 +55,6 @@ export const useForgotPasswordActions = ({
     handleVerify,
     handleReset,
     isVerifying,
-    isReseting,
+    isReset,
   };
 };

@@ -1,6 +1,6 @@
 import { baseApi } from '@/api/base-api';
 import { Notification } from '../types/notification.types';
-import { notificationkey } from '../constants/notification.constants';
+import { notificationKey } from '../constants/notification.constants';
 import { RootState } from '@/store/store';
 import { io, Socket } from 'socket.io-client';
 
@@ -75,12 +75,12 @@ export const NotificationsApi = baseApi.injectEndpoints({
       providesTags: (result) =>
         result
           ? [
-              ...result.map((n) => notificationkey.details(n.id)),
-              notificationkey.list(),
+              ...result.map((n) => notificationKey.details(n.id)),
+              notificationKey.list(),
             ]
-          : [notificationkey.list()],
+          : [notificationKey.list()],
     }),
-    updateNotificatoins: build.mutation<Notification[], void>({
+    updateNotifications: build.mutation<Notification[], void>({
       query: () => ({
         url: '/notifications',
         method: 'PATCH',
@@ -103,7 +103,7 @@ export const NotificationsApi = baseApi.injectEndpoints({
           patch.undo();
         }
       },
-      invalidatesTags: [notificationkey.list()],
+      invalidatesTags: [notificationKey.list()],
     }),
     updateNotification: build.mutation<Notification, { id: string }>({
       query: ({ id }) => ({
@@ -128,7 +128,7 @@ export const NotificationsApi = baseApi.injectEndpoints({
         }
       },
       invalidatesTags: (_result, _error, { id }) => [
-        notificationkey.details(id),
+        notificationKey.details(id),
       ],
     }),
     deleteNotification: build.mutation<void, { id: string }>({
@@ -158,7 +158,7 @@ export const NotificationsApi = baseApi.injectEndpoints({
       },
 
       invalidatesTags: (_result, _error, { id }) => [
-        notificationkey.details(id),
+        notificationKey.details(id),
       ],
     }),
   }),
@@ -168,7 +168,7 @@ export const {
   useGetNotificationsQuery,
   useGetUserNotificationQuery,
   useNotifyUsersMutation,
-  useUpdateNotificatoinsMutation,
+  useUpdateNotificationsMutation,
   useUpdateNotificationMutation,
   useDeleteNotificationMutation,
   useNotifyUserMutation,

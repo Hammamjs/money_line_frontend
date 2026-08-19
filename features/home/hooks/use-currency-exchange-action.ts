@@ -27,8 +27,6 @@ export const useCurrencyExchangeAction = ({
     setToAmount(v);
   }, []);
 
-  console.log(fromCurrency);
-
   const handleFromChange = useCallback((v: string) => {
     setLastEdited('from');
     setFromAmount(v);
@@ -43,7 +41,6 @@ export const useCurrencyExchangeAction = ({
 
   const handleFromCurrencyChange = (c: Currency) => {
     if (c.id === toCurrency?.id) setToCurrency(fromCurrency);
-    console.log('Should change to ', c);
     setFromCurrency(c);
     setLastEdited('from');
   };

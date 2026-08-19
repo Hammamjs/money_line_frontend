@@ -8,7 +8,7 @@ import Converter from './converter';
 import { useConverterUi } from '../hooks/use-converter-ui';
 import HowItWorks from './how-it-works';
 
-export default function Landing() {
+export const Landing = () => {
   const {
     currencies,
     fromAmount,
@@ -128,4 +128,4 @@ export default function Landing() {
       </section>
     </main>
   );
-}
+};

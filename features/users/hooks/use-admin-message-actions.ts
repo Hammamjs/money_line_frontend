@@ -22,8 +22,8 @@ export const useAdminMessageActions = ({
 }: Props) => {
   const { t } = useTranslation();
 
-  const { notifyAll, isLoading: isNotifingAllUsers } = useNotifyUsersAction();
-  const { notifyUser, isLoading: isNotifingUser } = useNotifyUserAction();
+  const { notifyAll, isLoading: isNotifyingAllUsers } = useNotifyUsersAction();
+  const { notifyUser, isLoading: isNotifyingUser } = useNotifyUserAction();
 
   const handleSend = async () => {
     try {
@@ -48,6 +48,6 @@ export const useAdminMessageActions = ({
 
   return {
     handleSend,
-    isLoading: isNotifingAllUsers || isNotifingUser,
+    isLoading: isNotifyingAllUsers || isNotifyingUser,
   };
 };

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { baseApi } from '@/api/base-api';
 import authReducerSlice from '@/features/auth/store/slices/auth-slice';
-import { rtkErrorQueryLogger } from '@/middleware/rtk-query-err-lggoer.middleware';
+import { rtkErrorQueryLogger } from '@/middleware/rtk-query-err-logger.middleware';
 
 export const store = configureStore({
   reducer: {

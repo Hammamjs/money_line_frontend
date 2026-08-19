@@ -33,7 +33,7 @@ export type ExchangeRateQuery = {
   toId: string;
 };
 
-export type AddExhangeRateQuery = {
+export type AddExchangeRateQuery = {
   fromCurrencyId: string;
   toCurrencyId: string;
   rate: number;

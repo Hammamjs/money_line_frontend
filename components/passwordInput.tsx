@@ -6,7 +6,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import { FieldValues, UseFormReturn, FieldPath } from 'react-hook-form';
 import { useTranslation } from '@/lib/i18n';
 
-type PassowrdInputProps<T extends FieldValues> = {
+type PasswordInputProps<T extends FieldValues> = {
   form: UseFormReturn<T>;
   name: FieldPath<T>;
   label: string;
@@ -20,7 +20,7 @@ export const PasswordInput = <T extends FieldValues>({
   name,
   id,
   testId,
-}: PassowrdInputProps<T>) => {
+}: PasswordInputProps<T>) => {
   const { lang } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
 
