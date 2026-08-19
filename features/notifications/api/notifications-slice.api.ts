@@ -37,11 +37,14 @@ export const NotificationsApi = baseApi.injectEndpoints({
 
         if (!token) return;
 
-        const socket: Socket = io('http://localhost:3000', {
-          auth: { token },
-          transports: ['websocket'],
-          autoConnect: true,
-        });
+        const socket: Socket = io(
+          process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000',
+          {
+            auth: { token },
+            transports: ['websocket'],
+            autoConnect: true,
+          },
+        );
 
         try {
           await cacheDataLoaded;
