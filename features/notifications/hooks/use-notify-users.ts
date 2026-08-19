@@ -1,4 +1,4 @@
-import { useNotifyUsersMutation } from '@/features/notifications/api/notifications-slice.api';
+import { useNotifyUsersMutation } from '../api/notifications-slice.api';
 
 export const useNotifyUsersAction = () => {
   const [action, result] = useNotifyUsersMutation();

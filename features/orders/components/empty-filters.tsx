@@ -13,7 +13,7 @@ export const EmptyFilters = ({ filter }: { filter: string }) => {
       <h3 className="text-xl font-medium mb-2">{t.noOrders}</h3>
       <p className="text-muted-foreground mb-6 max-w-sm mx-auto text-sm">
         {filter === 'all'
-          ? "You haven't made any transfers yeorders.t."
+          ? "You haven't made any transfers."
           : `No ${filter} transfers.`}
       </p>
       <Link href="/transfer">

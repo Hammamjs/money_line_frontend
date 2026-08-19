@@ -12,7 +12,7 @@ import { logout, setCredentials } from '@/features/auth/store';
 import { AuthResult } from '@/features/auth/types';
 import { currenciesKey } from '@/features/currency/constants';
 import { rateKey } from '@/features/exchange-rate/constants';
-import { notificationkey } from '@/features/notifications/constants';
+import { notificationKey } from '@/features/notifications/constants';
 import { orderKey } from '@/features/orders/constants';
 import { usersKey } from '@/features/users/constants';
 import { RootState } from '@/store/store';
@@ -77,7 +77,7 @@ export const baseApi = createApi({
     orderKey.type,
     currenciesKey.type,
     usersKey.type,
-    notificationkey.type,
+    notificationKey.type,
     accountkey.type,
   ],
 

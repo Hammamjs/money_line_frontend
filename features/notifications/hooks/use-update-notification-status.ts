@@ -1,7 +1,7 @@
-import { useUpdateNotificatoinsMutation } from '../api/notifications-slice.api';
+import { useUpdateNotificationsMutation } from '../api/notifications-slice.api';
 
 export const useUpdateNotificationsStatusAction = () => {
-  const [action, result] = useUpdateNotificatoinsMutation();
+  const [action, result] = useUpdateNotificationsMutation();
 
   const updateStatus = async () => {
     return action().unwrap();

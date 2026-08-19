@@ -10,14 +10,14 @@ export const PasswordSettingsSchema = z
       .regex(/[A-Z]/, 'Password must contains uppercase character')
       .regex(/[a-z]/, 'Password must contains one lowercase character')
       .regex(/[0-9]/, 'Password must contains at one number')
-      .regex(/[^0-9A-Za-z]/, 'Passowrd must contains special character'),
+      .regex(/[^0-9A-Za-z]/, 'Password must contains special character'),
     confirmPassword: z.string(),
   })
   .refine(
     ({ confirmPassword, newPassword }) => confirmPassword === newPassword,
     {
       path: ['confirmPw'],
-      error: 'New password and confirm password must matchs',
+      error: 'New password and confirm password must match',
     },
   );
 

@@ -42,7 +42,7 @@ export const SignUpForm = () => {
 
       <div className="mt-2 space-y-1">
         <PasswordRule
-          passed={passwordStatus.passowrdLength}
+          passed={passwordStatus.passwordLength}
           text={t.passReq.requirements.minLength}
         />
         <PasswordRule

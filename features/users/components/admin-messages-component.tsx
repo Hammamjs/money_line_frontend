@@ -3,7 +3,7 @@
 import { MessageSquare } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { SendMessegesOptions } from './send-messages-options';
+import { SendMessagesOptions } from './send-messages-options';
 import { SendMessageForm } from './send-message-form';
 import { useAdminMessageUi } from '../hooks/use-admin-message-ui';
 import { useAdminMessageActions } from '../hooks/use-admin-message-actions';
@@ -35,7 +35,7 @@ export const AdminMessagesComponent = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Recipient */}
-            <SendMessegesOptions
+            <SendMessagesOptions
               recipientId={recipientId}
               setRecipientId={setRecipientId}
               users={users}

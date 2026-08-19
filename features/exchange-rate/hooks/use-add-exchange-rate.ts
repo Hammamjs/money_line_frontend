@@ -1,10 +1,10 @@
 import { useAddExchangeRateMutation } from '../api/exchange-rate-slice.api';
-import { AddExhangeRateQuery } from '../types/exchange-rate.types';
+import { type AddExchangeRateQuery } from '../types/exchange-rate.types';
 
 export const useAddExchangeRateMutationAction = () => {
   const [action, result] = useAddExchangeRateMutation();
 
-  const addPairs = async (data: AddExhangeRateQuery) => {
+  const addPairs = async (data: AddExchangeRateQuery) => {
     return action(data).unwrap();
   };
 

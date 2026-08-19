@@ -17,7 +17,6 @@ import { selectUser } from '@/features/auth/store/slices/auth-slice';
 export const useUserForm = () => {
   const user = useSelector(selectUser);
 
-  /* ── Account form ── */
   const profileForm = useForm<TProfileSettingsSchema>({
     resolver: zodResolver(ProfileSettingsSchema),
     defaultValues: DEFAULT_PROFILE_VALUES,

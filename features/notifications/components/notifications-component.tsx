@@ -28,14 +28,14 @@ function NotificationIcon({ type }: { type: NotificationStatus }) {
   return <MessageSquare className="w-5 h-5 text-primary" />;
 }
 
-export default function NotificationComponent() {
+export const NotificationComponent = () => {
   const { t } = useTranslation();
 
   const { data: notifications } = useGetUserNotificationQuery();
 
   const { updateStatus } = useUpdateNotificationsStatusAction();
   const { markAsRead } = useUpdateNotificationAction();
-  const { deleteNotfication } = useDeleteNotificationAction();
+  const { deleteNotification } = useDeleteNotificationAction();
 
   const handleRead = async (id: string) => {
     try {
@@ -57,7 +57,7 @@ export default function NotificationComponent() {
 
   const handleDelete = async (id: string) => {
     try {
-      await deleteNotfication(id);
+      await deleteNotification(id);
       toast.success('Notification deleted');
     } catch (err) {
       console.log(err);
@@ -172,4 +172,4 @@ export default function NotificationComponent() {
       </div>
     </div>
   );
-}
+};

@@ -1,5 +1,5 @@
 export type {
-  AddExhangeRateQuery,
+  AddExchangeRateQuery,
   ExchangeRateQuery,
   ExchangeRateResult,
   UpdateExchangeQuery,

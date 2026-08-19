@@ -9,7 +9,7 @@ import { useOrdersUi } from '../hooks/use-orders-ui';
 import { useFiltered } from '../hooks/use-filtered';
 import { useTranslation } from '@/lib/i18n';
 
-export default function Orders() {
+export const OrdersComponent = () => {
   const { filter, orders, selected, setFilter, setSelected } = useOrdersUi();
   const { counts, filtered } = useFiltered({ orders, filter });
 
@@ -53,4 +53,4 @@ export default function Orders() {
       />
     </div>
   );
-}
+};

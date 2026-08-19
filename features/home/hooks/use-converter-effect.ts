@@ -26,7 +26,6 @@ export const useConverterEffect = ({
   rate,
 }: ConverterState) => {
   useEffect(() => {
-    console.log(rate);
     if (!rate) return;
 
     if (fromCurrency === null || toCurrency === null) return;
